@@ -1,7 +1,7 @@
 import { list } from "@vercel/blob";
-import DeleteButton from "./DeleteButton";
-import RenameButton from "./RenameButton";
 import { Table } from "@radix-ui/themes";
+import DocumentBody from "./DocumentBody";
+
 const Documents = async () => {
   const { blobs } = await list();
   return (
@@ -15,18 +15,10 @@ const Documents = async () => {
         </Table.Row>
       </Table.Header>
       <Table.Body>
-        {blobs.map((blob) => (
-          <Table.Row key={blob.url}>
-            <Table.RowHeaderCell>{blob.pathname}</Table.RowHeaderCell>
-            <Table.Cell>{blob.url}</Table.Cell>
-            <Table.Cell>
-              <RenameButton name="hello" url={blob.url} />
-            </Table.Cell>
-            <Table.Cell>
-              <DeleteButton url={blob.url} />
-            </Table.Cell>
-          </Table.Row>
-        ))}
+        {blobs &&
+          blobs.map((blob) => (
+            <DocumentBody url={blob.url} pathname={blob.pathname} />
+          ))}
       </Table.Body>
     </Table.Root>
   );

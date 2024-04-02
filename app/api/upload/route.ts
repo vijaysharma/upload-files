@@ -1,12 +1,16 @@
-import { put, del, copy  } from "@vercel/blob";
+import { put, del, copy } from "@vercel/blob";
 import { NextResponse } from "next/server";
-
 
 export async function PUT(request: Request): Promise<NextResponse> {
   const { searchParams } = new URL(request.url);
   const newFileName = searchParams.get("name") || "";
   const json = await request.json();
-  const blob = await copy(json.url, `${newFileName}${json.url.match('\.[0-9a-z]+$')[0]}`, { access: 'public' });
+  const fileExtension = json.url.match(".[0-9a-z]+$")
+    ? json.url.match(".[0-9a-z]+$")[0]
+    : "";
+  const blob = await copy(json.url, `${newFileName}${fileExtension}`, {
+    access: "public",
+  });
   await del(json.url);
   return NextResponse.json(blob);
 }
@@ -14,7 +18,7 @@ export async function PUT(request: Request): Promise<NextResponse> {
 export async function DELETE(request: Request): Promise<NextResponse> {
   const json = await request.json();
   await del(json.url);
-  return NextResponse.json({message: 'Deleted succesfully!'});
+  return NextResponse.json({ message: "Deleted successfully!" });
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
