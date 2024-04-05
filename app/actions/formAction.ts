@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 export const uploadFile = async (FormData: FormData) => {
   const file = FormData.get("file") as File;
   try {
-    const blob = await put(file?.name, file, {
+    await put(file?.name, file, {
       access: "public",
     });
   } catch (error) {

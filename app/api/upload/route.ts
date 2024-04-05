@@ -14,6 +14,6 @@ export async function PUT(request: Request): Promise<NextResponse> {
     await del(json.url);
     return NextResponse.json(blob);
   } catch {
-    return NextResponse.json({ message: "Unable to rename the file" });
+    throw new Error("Unable to rename the file");
   }
 }
