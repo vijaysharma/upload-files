@@ -1,0 +1,27 @@
+.ToastRoot {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 8px 16px;
+  background: rgba(0, 106, 167, 0.9);
+  color: #fff;
+}
+.alert {
+  background: rgba(167, 0, 36, 0.9);
+}
+.success {
+  background: rgba(0, 167, 42, 0.9);
+}
+.ToastClose {
+  float: right;
+  svg {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  a {
+    color: #fff;
+    font-weight: bold;
+  }
+}
