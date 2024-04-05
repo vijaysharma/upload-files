@@ -6,7 +6,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This project has been deployed using Vercel.
 
-To view the deployed project, open [http://localhost:3000](http://localhost:3000) in your browser.
+To view the deployed project, open [https://upload-files-rho.vercel.app/](https://upload-files-rho.vercel.app/) in your browser.
 
 ## Documentation
 
