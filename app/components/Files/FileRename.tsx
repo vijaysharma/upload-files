@@ -46,6 +46,7 @@ const FileRename = ({ url, setSelectedUrl, selectedUrl }: Props) => {
             await fetch(`/api/upload?name=${fileName}`, {
               method: "PUT",
               body: JSON.stringify({ url }),
+              cache: "no-cache",
             });
             setSelectedUrl("");
             router.refresh();

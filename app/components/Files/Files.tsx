@@ -4,7 +4,7 @@ import FilesTable from "./FilesTable";
 const Files = async () => {
   async function allFiles() {
     const { blobs } = await list();
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
     return blobs;
   }
   const files = await allFiles();
