@@ -10,8 +10,17 @@ type Props = {
   pathname: string;
   selectedUrl: string;
   setSelectedUrl: (value: string) => void;
+  setNotification: (value: string) => void;
+  setNotify: (value: boolean) => void;
 };
-const FileRename = ({ url, setSelectedUrl, selectedUrl }: Props) => {
+const FileRename = ({
+  url,
+  pathname,
+  setSelectedUrl,
+  selectedUrl,
+  setNotify,
+  setNotification,
+}: Props) => {
   const router = useRouter();
   const [fileName, setFileName] = useState("");
   const [renameOpen, setRenameOpen] = useState(false);
@@ -49,6 +58,10 @@ const FileRename = ({ url, setSelectedUrl, selectedUrl }: Props) => {
               cache: "no-store",
             });
             setSelectedUrl("");
+            setNotification(
+              `File "${pathname}" has successfully been renamed to "${fileName}".`
+            );
+            setNotify(true);
             router.refresh();
           }}
           disabled={!fileName}

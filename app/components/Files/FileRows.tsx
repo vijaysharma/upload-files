@@ -35,8 +35,10 @@ const FileRows = ({ files, setNotify, setNotification }: Props) => {
                 <FileRename
                   url={file.url}
                   pathname={file.pathname}
-                  setSelectedUrl={setSelectedUrl}
                   selectedUrl={selectedUrl}
+                  setSelectedUrl={setSelectedUrl}
+                  setNotify={setNotify}
+                  setNotification={setNotification}
                 />
               </Skeleton>
             </Table.Cell>
@@ -46,8 +48,8 @@ const FileRows = ({ files, setNotify, setNotification }: Props) => {
                   url={file.url}
                   pathname={file.pathname}
                   setNotify={setNotify}
-                  selectedUrl={selectedUrl}
                   setNotification={setNotification}
+                  selectedUrl={selectedUrl}
                   setSelectedUrl={setSelectedUrl}
                 />
               </Skeleton>
